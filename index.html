@@ -132,6 +132,34 @@
             box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
         }
 
+        /* Group card adjustments for filtering */
+        .group-item {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            background: #faf8fb;
+            border-left: 3px solid #e6daf2;
+        }
+
+        .group-title {
+            color: #4A154B;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .group-members {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        #noResultsMessage {
+            color: #c0392b;
+            font-weight: 600;
+            margin-top: 15px;
+            display: none;
+        }
+
         ul {
             list-style-position: inside;
             margin-top: 10px;
@@ -167,7 +195,7 @@
             <a href="#contact" class="btn">Join Our Ministry</a>
         </div>
 
-        <!-- 🔍 STANDALONE SEARCH BAR (Placed exactly below the purple banner on its own card) -->
+        <!-- 🔍 STANDALONE SEARCH BAR -->
         <div class="card" style="border-left: 5px solid #ffcc00; background: #fffdfc; padding: 25px;">
             <div class="search-title">🔍 Search</div>
             <input type="text" id="memberSearch" class="search-box" placeholder="Type a name or department...">
@@ -187,6 +215,64 @@
                 <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
             </ul>
         </div>
+
+        <!-- 👥 MINISTRY DEPARTMENTS & GROUPS SECTION -->
+        <div class="card" id="departmentsCard">
+            <h3>🤝 Ministry Departments & Groups</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 10px;">Our team is organized into specialized groups to ensure excellence in our dance ministry.</p>
+            
+            <div id="noResultsMessage">❌ No matching groups or members found.</div>
+
+            <!-- Group Item 1 -->
+            <div class="group-item">
+                <div class="group-title">💃 Choreography & Routines</div>
+                <p>Responsible for creating dance setups, practicing steps, and leading main rehearsals.</p>
+                <div class="group-members"><strong>Members:</strong> Shadrach, Shillah, Naomi, James</div>
+            </div>
+
+            <!-- Group Item 2 -->
+            <div class="group-item">
+                <div class="group-title">🙏 Intercessory & Devotion</div>
+                <p>Leads the team in prayer, fasting schedules, and spiritual devotions before any ministering event.</p>
+                <div class="group-members"><strong>Members:</strong> Shillah, Makolo, Shadrach</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Rattles of Shiloh. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 🧠 ENGINE FOR FILTRATION -->
+    <script>
+        document.getElementById('memberSearch').addEventListener('input', function() {
+            let query = this.value.toLowerCase().trim();
+            let groups = document.querySelectorAll('.group-item');
+            let errorMsg = document.getElementById('noResultsMessage');
+            let foundAny = 0;
+
+            groups.forEach(function(item) {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = "";
+                    foundAny++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            if (foundAny === 0 && query !== "") {
+                errorMsg.style.display = "block";
+            } else {
+                errorMsg.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
+
             <h3>🎭 Ministry Departments & Groups</h3>
             <p>Our team is organized into specialized groups to ensure excellence in our dance ministry:</p>
             <div style="margin-top: 20px;">

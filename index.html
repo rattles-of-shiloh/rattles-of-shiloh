@@ -155,21 +155,12 @@ v<!DOCTYPE html>
                 <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
             </ul>
         </div>
- <script>
-        document.getElementById('memberSearch').addEventListener('keyup', function() {
-            let filterValue = this.value.toLowerCase();
-            let items = document.querySelectorAll('.card div[style*="background: #fdfafc"]');
-            
-            items.forEach(function(item) {
-                let text = item.textContent.toLowerCase();
-                if(text.includes(filterValue)) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-    </script>
+ <!-- Interactive Search Bar Filter Section -->
+        <div class="card" style="border-left: 5px solid #ffcc00; background: #fffdfc;">
+            <h3>🔍 Search Roster & Departments</h3>
+            <p>Type a dancer's name or department to find them instantly:</p>
+            <input type="text" id="memberSearch" class="search-box" placeholder="Search for Shadrach, Shii, Media, Choreography...">
+        </div>
         <!-- Team Groups Section -->
         <div class="card">
             <h3>🎭 Ministry Departments & Groups</h3>

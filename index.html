@@ -155,7 +155,21 @@ v<!DOCTYPE html>
                 <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
             </ul>
         </div>
-
+ <script>
+        document.getElementById('memberSearch').addEventListener('keyup', function() {
+            let filterValue = this.value.toLowerCase();
+            let items = document.querySelectorAll('.card div[style*="background: #fdfafc"]');
+            
+            items.forEach(function(item) {
+                let text = item.textContent.toLowerCase();
+                if(text.includes(filterValue)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    </script>
         <!-- Team Groups Section -->
         <div class="card">
             <h3>🎭 Ministry Departments & Groups</h3>

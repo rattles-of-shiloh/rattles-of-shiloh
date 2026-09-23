@@ -20,6 +20,34 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        /* --- 1. SPLASH INTRO PAGE SECTION --- */
+        .splash-screen {
+            background: #000;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .splash-link {
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .splash-link:hover {
+            transform: scale(1.02);
+        }
+
+        .logo {
+            display: block;
+            width: min(90vw, 700px);
+            height: auto;
+        }
+
+        /* --- 2. MAIN WEBSITE CONTENT SECTION --- */
         body {
             background-color: #fcfbfa;
             color: #333;
@@ -103,70 +131,8 @@
 
         .card h3 {
             color: #4A154B;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.4rem;
-        }
-
-        .search-title {
-            font-family: 'Cinzel', serif;
-            color: #4A154B;
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 14px 22px;
-            font-size: 1.05rem;
-            border: 2px solid #e6daf2;
-            border-radius: 25px;
-            outline: none;
-            transition: 0.3s ease-in-out;
-            background-color: #fff;
-        }
-
-        .search-box:focus {
-            border-color: #ffcc00;
-            box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
-        }
-
-        /* Group card adjustments for filtering */
-        .group-item {
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 6px;
-            background: #faf8fb;
-            border-left: 3px solid #e6daf2;
-        }
-
-        .group-title {
-            color: #4A154B;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .group-members {
-            font-size: 0.95rem;
-            color: #666;
-            margin-top: 6px;
-        }
-
-        #noResultsMessage {
-            color: #c0392b;
-            font-weight: 600;
-            margin-top: 15px;
-            display: none;
-        }
-
-        ul {
-            list-style-position: inside;
-            margin-top: 10px;
-        }
-
-        li {
-            margin-bottom: 8px;
         }
 
         footer {
@@ -181,19 +147,28 @@
 </head>
 <body>
 
-    <header>
-        <h1>THE RATTLES OF SHILOH</h1>
-        <p>Ezekiel 3:12 "Then the spirit lifted me up,and i heard a loud rumbling sound behind me.(May the glory of the lord be praised in his place!)</p>
-    </header>
+    <!-- 1. Full Screen Black Splash Page -->
+    <div class="splash-screen">
+        <a href="#main-site" class="splash-link" title="Click to enter website">
+            <img class="logo" src="YOUR_IMAGE_FILE.png" alt="Rattles of Shiloh">
+        </a>
+    </div>
 
-    <div class="container">
-        
-        <!-- Big Black Welcome Banner -->
-        <div class="hero">
-            <h2>Welcome to Our Ministry</h2>
-            <p>We are a dedicated church dancing team using our talents to minister, inspire, and praise the Almighty at Kenyatta Road.</p>
-            <a href="#contact" class="btn">Join Our Ministry</a>
-        </div>
+    <!-- 2. Main Site Content Block -->
+    <div id="main-site">
+        <header>
+            <h1>RATTLES OF SHILOH</h1>
+            <p>Ezekiel 3:12 "Then the spirit lifted me up, and i heard a loud rumbling sound behind me. (May the glory of the lord be praised in his place!)"</p>
+        </header>
+
+        <div class="container">
+            
+            <!-- Big Welcome Banner -->
+            <div class="hero">
+                <h2>Welcome to Our Ministry</h2>
+                <p>We are a dedicated church dancing team using our talents to minister, inspire, and praise the Almighty at Kenyatta Road.</p>
+                <a href="#contact" class="btn">Join Our Ministry</a>
+            </div>
 
         <!-- 🔍 STANDALONE SEARCH BAR -->
         <div class="card" style="border-left: 5px solid #ffcc00; background: #fffdfc; padding: 25px;">

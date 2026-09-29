@@ -10,9 +10,10 @@
     <!-- Google Fonts for professional typography -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Global Resets & Theme Settings */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +21,14 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* --- 1. SPLASH INTRO PAGE SECTION --- */
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- SPLASH INTRO PAGE SECTION --- */
         .splash-screen {
             background: #000;
             width: 100vw;
@@ -29,6 +37,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            z-index: 1000;
         }
 
         .splash-link {
@@ -43,370 +52,459 @@
 
         .logo {
             display: block;
-            width: min(90vw, 700px);
+            width: min(90vw, 500px);
             height: auto;
         }
 
-        /* --- 2. MAIN WEBSITE CONTENT SECTION --- */
-        body {
-            background-color: #fcfbfa;
-            color: #333;
-            line-height: 1.6;
+        /* --- SCREEN RESPONSIVENESS ENGINE (GRID) --- */
+        #main-site {
+            display: grid;
+            grid-template-columns: 360px 1fr; /* Fixed Sidebar left, fluid content right */
+            min-height: 100vh;
         }
 
-        header {
-            background-color: #1E3A8A; /* Changed from Purple to Royal Blue */
+        /* Left Sidebar Container (Laptop View) */
+        .sidebar {
+            background-color: #1E3A8A;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border-bottom: 4px solid #ffcc00;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.15);
+            border-right: 4px solid #ffcc00;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
         }
 
-        header h1 {
+        .sidebar header h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             background: linear-gradient(135deg, #fff099 0%, #ffcc00 50%, #d4a373 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        header p {
+        .sidebar header p {
             font-style: italic;
             color: #ffffff; 
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: center;
+            opacity: 0.95;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
+        /* Right Main Content Body */
+        .content-area {
+            padding: 40px;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
         }
 
+        /* Cards & Components Styles */
         .hero {
             text-align: center;
-            /* Changed gradient from Purple tint to Blue tint */
-            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.7)), url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.7)), url('https://unsplash.com') no-repeat center center/cover;
             color: white;
-            padding: 60px 20px;
+            padding: 50px 30px;
             border-radius: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
         }
 
         .btn {
             display: inline-block;
             background-color: #ffcc00;
-            color: #1E3A8A; /* Changed text color to contrast blue scheme */
-            padding: 12px 24px;
+            color: #1E3A8A;
+            padding: 12px 28px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 25px;
             margin-top: 15px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
             background-color: white;
-            transform: scale(1.05);
+            color: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
 
         .card {
             background: white;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            border-left: 5px solid #1E3A8A; /* Changed left accent border to Blue */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+            border-left: 6px solid #1E3A8A;
         }
 
         .card h3 {
-            color: #1E3A8A; /* Changed header text to Blue */
+            color: #1E3A8A;
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .department-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .department-item h4 {
+            color: #1E3A8A;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #1E3A8A;
+        }
+
+        .member-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            line-height: 1.8;
+        }
+
+        .group-item {
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #334155;
+            display: inline-block;
+        }
+
+        .weapon-title {
+            color: #ffcc00;
+            background: #1E3A8A;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .orchestra-grid {
+            list-style-type: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .orchestra-grid li {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        .tech-badge {
+            background: #e1e7f5;
+            color: #1E3A8A;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+            padding: 25px;
+            background-color: #111827;
+            color: #9ca3af;
             font-size: 0.9rem;
-            margin-top: 60px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        /* --- 📱 MOBILE RESPONSIVE ENGINE MEDIA QUERY --- */
+        @media (max-width: 900px) {
+            #main-site {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 4px solid #ffcc00;
+                padding: 30px 20px;
+            }
+
+            .content-area {
+                padding: 20px 15px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
-</head>
-<body>
+</head> 
+    <body>
 
     <!-- 1. Full Screen Black Splash Page -->
-    <div class="splash-screen">
-        <a href="#main-site" class="splash-link" title="Click to enter website">
+    <div class="splash-screen" id="splash">
+        <a href="#main-site" class="splash-link" onclick="document.getElementById('splash').style.display='none'" title="Click to enter website">
             <img class="logo" src="logo.png" alt="Rattles of Shiloh Logo">
         </a>
     </div>
 
-    <!-- 2. Main Site Content Block -->
-    <div id="main-site">
-        <header>
-            <h1>RATTLES OF SHILOH</h1>
-            <p>Ezekiel 3:12 "Then the spirit lifted me up, and i heard a loud rumbling sound behind me. (May the glory of the lord be praised in his place!)"</p>
-        </header>
+        <div style="margin-top: 30px;">
+                    <div class="department-item">
+                        <h4>💃 Choreography & Routines</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">Responsible for creating dance setups, practicing steps, and leading main rehearsals.</p>
+                        <p style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A;">✨ Members: Shadrach, Shillah, Naomi</p>
+                    </div>
+                    
+                    <div class="department-item">
+                        <h4>🙏 Intercessory & Devotion</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">Leads the team in prayer, fasting schedules, and spiritual devotions before any ministering event.</p>
+                        <p style="font-size: 0.85rem; font-weight: bold; color: #1E3A8A;">✨ Members: Shillah, Makolo, Shii</p>
+                    </div>
+                    
+                    <div class="department-item">
+                        <h4>🎭 Skits Team</h4>
+                        <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 12px;">
+                            "Our purpose is not to perform, but to minister. We do not look for the applause of men, but for the transformation of souls. As a skit team in training, we commit our talents, our bodies, and our voices to become sharp, effective weapons in the hands of the Living God."
+                        </p>
+                        <p style="font-size: 0.88rem; font-weight: bold; color: #1E3A8A;">✨ Members: 1. Mirriam, 2. Peris, 3. James, 4. Christabel, 5. Abbie</p>
+                    </div>
 
-        <div class="container">
+                    <div class="department-item">
+                        <h4>🗣️ Spoken Word Collective</h4>
+                        <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 12px;">
+                            "The mission of a spoken word collective is to serve as a rhythmic vessel through which divine truth is articulated with unapologetic realism and convicting power."
+                        </p>
+                        <p style="font-size: 0.88rem; font-weight: bold; color: #1E3A8A;">✨ Members: 1. Alvin, 2. Shii, 3. Grace</p>
+                    </div>
+
+                    <div class="department-item" style="border-left: 4px solid #ffcc00;">
+                        <h4>🧥 Wardrobe Department</h4>
+                        <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 15px;">
+                            "Uniform attire shows a reflection of spiritual preparation, reverence and alignment with God."
+                        </p>
+                        <h5 style="font-size: 0.95rem; color: #1E3A8A; margin-bottom: 8px; font-weight: bold;">Uniform Attire Configurations:</h5>
+                        <ul style="list-style-type: square; padding-left: 20px; font-size: 0.88rem; color: #333; line-height: 1.6;">
+                            <li>First Set: Black shirt, black trouser and black shoes so there is a piece of white cloth</li>
+                            <li>Second Set: White tshirts black tie black trouser and a pair of white shoe and a black sleeveless (wind breaker)</li>
+                            <li>Third Set: White branded T shirt, light blue jeans and a pair of white shoes</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!-- End of Ministry Card -->
+
+            <div class="card" style="border-left: 6px solid #ffcc00;">
+                <h3>📸 Ministry Gallery</h3>
+                <p style="margin-bottom: 15px;">Capturing moments of worship, praise, and fellowship at Kenyatta Road:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance1.jpg" alt="The Rattles Anniversary" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Rattles Anniversary</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance2.jpg" alt="The Rattles Anniversary Rehearsal" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Rattles Anniversary</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance3.jpg" alt="The Rattles Anniversary Presentation" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Rattles Anniversary</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance4.jpg" alt="The Rattles Anniversary Celebration" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Rattles Anniversary</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance5.jpg" alt="The Rattles Ministry Fellowship" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Ministry Fellowship</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance6.jpg" alt="The Rattles Celebration" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Celebration</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance7.jpg" alt="Anniversary Poster" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Anniversary Poster</p>
+                    </div>
+                    <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
+                        <img src="team-dance8.jpg" alt="Anniversary Bonding Time" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 8px; font-weight: bold;">Anniversary Bonding Time</p>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- 2. Master Site Dual-Column Structural Hub -->
+    <div id="main-site">
+        
+        <!-- LEFT LAYER: The Dynamic Sidebar Container -->
+        <div class="sidebar">
+            <header>
+                <h1>RATTLES OF SHILOH</h1>
+                <p>Ezekiel 3:12 "Then the spirit lifted me up, and i heard a loud rumbling sound behind me. (May the glory of the lord be praised in his place!)"</p>
+            </header>
             
-            <!-- Big Welcome Banner -->
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #ffcc00;">
+                <h4 style="color: #ffcc00; margin-bottom: 8px;">📍 Kenyatta Road</h4>
+                <p style="font-size: 0.88rem; line-height: 1.4;">Our dedicated home base for prayer, fellowship, and prophetic choreography practice.</p>
+            </div>
+        </div>
+
+        <!-- RIGHT LAYER: Scrollable Content Stream -->
+        <div class="content-area">
+            
             <div class="hero">
                 <h2>Welcome to Our Ministry</h2>
                 <p>We are a dedicated church dancing team using our talents to minister, inspire, and praise the Almighty at Kenyatta Road.</p>
                 <a href="#contact" class="btn">Join Our Ministry</a>
             </div>
 
-        <!-- 🔍 STANDALONE SEARCH BAR -->
-        <div class="card" style="border-left: 5px solid #ffcc00; background: #fffdfc; padding: 25px;">
-            <div class="search-title">🔍 Search</div>
-            <input type="text" id="memberSearch" class="search-box" placeholder="Type a name or department...">
-        </div>
+            <div class="card">
+                <h3>✨ Our Mission</h3>
+                <p>To glorify God through creative and spiritual dance expressions. The Rattles dance team aims to touch hearts, uplift spirits, and lead the congregation into a deep atmosphere of worship during services and special church events.</p>
+            </div>
 
-        <div class="card">
-            <h3>✨ Our Mission</h3>
-            <p>To glorify God through creative and spiritual dance expressions. The Rattles dance team aims to touch hearts, uplift spirits, and lead the congregation into a deep atmosphere of worship during services and special church events.</p>
-        </div>
+            <div class="card">
+                <h3>📅 Practice Schedule</h3>
+                <p style="margin-bottom: 15px;">We meet regularly at Kenyatta Road to fellowship, pray, and practice our routines. All members are welcome to join us:</p>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                    <li><strong>Mondays:</strong> 6:45 PM – 8:20 PM</li>
+                    <li><strong>Wednesdays:</strong> 6:45 PM – 8:15 PM</li>
+                    <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
+                </ul>
+            </div>
 
-        <div class="card">
-            <h3>📅 Practice Schedule</h3>
-            <p>We meet regularly at Kenyatta Road to fellowship, pray, and practice our routines. All members are welcome to join us:</p>
-            <ul>
-                <li><strong>Mondays:</strong> 6:45 PM – 8:20 PM</li>
-                <li><strong>Wednesdays:</strong> 6:45 PM – 8:15 PM</li>
-                <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
-            </ul>
-        </div>
-
-    <!-- 🧠 ENGINE FOR FILTRATION -->
-    <script>
-        document.getElementById('memberSearch').addEventListener('input', function() {
-            let query = this.value.toLowerCase().trim();
-            let groups = document.querySelectorAll('.group-item');
-            let errorMsg = document.getElementById('noResultsMessage');
-            let foundAny = 0;
-
-            groups.forEach(function(item) {
-                let text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = "";
-                    foundAny++;
-                } else {
-                    item.style.display = "none";
-                }
-            });
-
-            if (foundAny === 0 && query !== "") {
-                errorMsg.style.display = "block";
-            } else {
-                errorMsg.style.display = "none";
-            }
-        });
-    </script>
-
-</body>
-</html>
-
-        <!-- Team Groups Section -->
-        <div class="card">
-            <h3>🎭 Ministry Departments & Groups</h3>
-            <p style="margin-bottom: 25px;">Our team is organized into specialized groups to ensure excellence in our dance and music ministry:</p>
-            
-            <div style="margin-top: 20px;">
+            <div class="card">
+                <h3>🎭 Ministry Departments & Groups</h3>
+                <p style="margin-bottom: 25px;">Our team is organized into specialized groups to ensure excellence in our dance and music ministry:</p>
                 
-                <!-- Department 1: Main Roster -->
-                <div class="department-item" style="background: #fdfafc; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 10px; font-size: 1.15rem; border-bottom: 2px solid #e6daf2; padding-bottom: 5px;">💃 Rattles of Shiloh Members</h4>
-                    <p style="font-size: 0.95rem; color: #333; line-height: 1.8; font-weight: bold; letter-spacing: 0.5px;">
-                        1. Alvin &nbsp;|&nbsp; 2. Shillah &nbsp;|&nbsp; 3. Shadrach &nbsp;|&nbsp; 4. Shii &nbsp;|&nbsp; 5. Christabel &nbsp;|&nbsp; 6. Grace &nbsp;|&nbsp; 7. James &nbsp;|&nbsp; 8. Naomi &nbsp;|&nbsp; 9. Peris &nbsp;|&nbsp; 10. Abbie &nbsp;|&nbsp; 11. Cecelia &nbsp;|&nbsp; 12. Makolo &nbsp;|&nbsp; 13. Philgona &nbsp;|&nbsp; 14. M.Paul &nbsp;|&nbsp; 15. Mitchell &nbsp;|&nbsp; 16. Dalvo &nbsp;|&nbsp; 17. Sandy &nbsp;|&nbsp; 18. Mirriam
-                    </p>
+                <input type="text" id="memberSearch" class="search-box" placeholder="🔍 Type a dancer's name to search the roster...">
+                <p id="noResultsMessage" style="color: #dc2626; display: none; margin-bottom: 15px; font-weight: bold;">No matching team members found.</p>
+
+                <div class="department-item">
+                    <h4>💃 Rattles of Shiloh Members</h4>
+                    <div class="member-grid" id="rosterContainer">
+                        <span class="group-item">Alvin</span>
+                        <span class="group-item">Shillah</span>
+                        <span class="group-item">Shadrach</span>
+                        <span class="group-item">Shii</span>
+                        <span class="group-item">Christabel</span>
+                        <span class="group-item">Grace</span>
+                        <span class="group-item">James</span>
+                        <span class="group-item">Naomi</span>
+                        <span class="group-item">Peris</span>
+                        <span class="group-item">Abbie</span>
+                        <span class="group-item">Cecelia</span>
+                        <span class="group-item">Makolo</span>
+                        <span class="group-item">Philgona</span>
+                        <span class="group-item">M.Paul</span>
+                        <span class="group-item">Mitchell</span>
+                        <span class="group-item">Dalvo</span>
+                        <span class="group-item">Sandy</span>
+                        <span class="group-item">Mirriam</span>
+                    </div>
                 </div>
 
-                <!-- Department 2: Weapons of Warfare -->
-                <div class="department-item" style="background: #fdfafc; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 5px; font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.2rem; letter-spacing: 1px;">⚔️ RATTLES OF SHILOH</h4>
-                    <h5 style="color: #ffcc00; background: #4A154B; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-bottom: 12px; letter-spacing: 1px;">WEAPONS OF WARFARE</h5>
+                <div class="department-item" style="border-left: 4px solid #ffcc00;">
+                    <h4 style="font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.3rem; letter-spacing: 1px; margin-bottom: 5px;">⚔️ RATTLES OF SHILOH</h4>
+                    <span class="weapon-title">WEAPONS OF WARFARE</span>
                     
-                    <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #ffcc00;">
+                    <p style="font-size: 0.92rem; color: #555; font-style: italic; margin-bottom: 20px; padding-left: 12px; border-left: 3px solid #ffcc00; line-height: 1.5;">
                         "The core spiritual purpose of your weapons of warfare is to destroy demonic barriers so that captive souls can be harvested for the Kingdom of God [2 Corinthians 10:4]."
                     </p>
                     
-                    <h4 style="font-size: 0.9rem; color: #4A154B; margin-bottom: 8px; font-weight: bold;">🎸 Orchestral Deployment:</h4>
-                    <ul style="list-style-type: none; padding-left: 0; margin-top: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;">
-                        <li style="font-size: 0.88rem; color: #333;"><strong>1. Shillah:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>2. Shadrach:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>3. Dalvo:</strong> Acoustic Guitar 🎸</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>4. Makolo:</strong> Bass Guitar 🎸</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>5. Alvin:</strong> Bass Guitar 🎸</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>6. Peris:</strong> Keyboard 🎹</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>7. Grace:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>8. Naomi:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>9. James:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>10. Philogona:</strong> Drums 🥁</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>11. Shii:</strong> Keyboard 🎹</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>12. Abbie:</strong> Violin 🎻</li>
-                        <li style="font-size: 0.88rem; color: #333;"><strong>13. Christabel:</strong>Violin 🎻 </li>
+                    <h4 style="font-size: 1rem; color: #1E3A8A; margin-bottom: 5px; font-weight: bold; border-bottom: none;">🎸 Orchestral Deployment:</h4>
+                    <ul class="orchestra-grid">
+                        <li><strong>1. Shillah:</strong> Drums 🥁</li>
+                        <li><strong>2. Shadrach:</strong> Drums 🥁</li>
+                        <li><strong>3. Dalvo:</strong> Acoustic Guitar 🎸</li>
+                        <li><strong>4. Makolo:</strong> Bass Guitar 🎸</li>
+                        <li><strong>5. Alvin:</strong> Bass Guitar 🎸</li>
+                        <li><strong>6. Peris:</strong> Keyboard 🎹</li>
+                        <li><strong>7. Grace:</strong> Drums 🥁</li>
+                        <li><strong>8. Naomi:</strong> Drums 🥁</li>
+                        <li><strong>9. James:</strong> Drums 🥁</li>
+                        <li><strong>10. Philogona:</strong> Drums 🥁</li>
+                        <li><strong>11. Shii:</strong> Keyboard 🎹</li>
+                        <li><strong>12. Abbie:</strong> Violin 🎻</li>
+                        <li><strong>13. Christabel:</strong> Violin 🎻</li>
                     </ul>
                 </div>
-
+                 <div class="card" id="contact">
+                <h3>📞 Contact & Inquiries</h3>
+                <p>Want us to minister at an event, or interested in joining the team? Reach out to our leadership directly or visit us at Kenyatta Road:</p>
+                <ul style="list-style-type: none; padding-left: 0; margin-top: 15px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 12px; font-size: 1.05rem; display: flex; align-items: center; gap: 10px;">
+                        <img src="path-to-shii-photo.jpg" alt="Shii Mboi" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid #cbd5e1;">
+                        <span><strong>Shii Mboi (Team Leader):</strong> +254 798 891886</span>
+                    </li>
+                    <li style="font-size: 1.05rem; display: flex; align-items: center; gap: 10px; padding-left: 5px;">
+                        <span><strong>📍 Location:</strong> Kenyatta Road</span>
+                    </li>
+                </ul>
+                <a href="https://wa.me" target="_blank" class="btn" style="background-color: #25D366; color: white; display: inline-flex; align-items: center; gap: 8px;">
+                    💬 Chat on WhatsApp
+                </a>
             </div>
-        </div> <!-- Team Groups Section -->
-        <div class="card">
-            <div style="margin-top: 20px;">
-                <div style="background: #fdfafc; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 5px;">💃 Choreography & Routines</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">Responsible for creating dance setups, practicing steps, and leading main rehearsals.</p>
-                    <p style="font-size: 0.85rem; font-weight: bold; color: #4A154B;">✨ Members: Shadrach, Shillah, Naomi</p>
+
+            <div class="card" style="border-left: 6px solid #ffcc00; background: #fffdf5;">
+                <h3>🛠️ Developer Profile</h3>
+                <p>This digital ministry platform was engineered, deployed, and is maintained by:</p>
+                <div style="margin-top: 15px; display: flex; align-items: center; gap: 15px; background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                    <img src="alvin.jpg" alt="Alvin Profile" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #1E3A8A;">
+                    <div>
+                        <h4 style="color: #1E3A8A; margin: 0;">Alvin</h4>
+                        <p style="font-size: 0.85rem; color: #666; margin: 2px 0 0 0;">Systems & Web Software Developer</p>
+                    </div>
                 </div>
-                <div style="background: #fdfafc; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 5px;">🙏 Intercessory & Devotion</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 8px;">Leads the team in prayer, fasting schedules, and spiritual devotions before any ministering event.</p>
-                    <p style="font-size: 0.85rem; font-weight: bold; color: #4A154B;">✨ Members: Shillah, Makolo, Shii</p>
-                </div>
-                      <!-- 3. Skits Section -->
-                <div class="department-item" style="background: #fdfafc; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 10px; font-size: 1.15rem; border-bottom: 2px solid #e6daf2; padding-bottom: 5px;">🎭 Skits Team</h4>
-                    <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 12px;">
-                        "Our purpose is not to perform, but to minister. We do not look for the applause of men, but for the transformation of souls. As a skit team in training, we commit our talents, our bodies, and our voices to become sharp, effective weapons in the hands of the Living God."
-                    </p>
-                    <p style="font-size: 0.88rem; font-weight: bold; color: #4A154B;">✨ Members: 1.Mirriam,2.Peris,3.James,4.Christabel,5.Abbie</p>
-                </div>
-
-                <!-- 4. Spoken Word Section -->
-                <div class="department-item" style="background: #fdfafc; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 10px; font-size: 1.15rem; border-bottom: 2px solid #e6daf2; padding-bottom: 5px;">🗣️ Spoken Word Collective</h4>
-                    <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 12px;">
-                        "The mission of a spoken word collective is to serve as a rhythmic vessel through which divine truth is articulated with unapologetic realism and convicting power."
-                    </p>
-                    <p style="font-size: 0.88rem; font-weight: bold; color: #4A154B;">✨ Members: 1. Alvin, 2. Shii, 3. Grace</p>
-                </div>
-
-                <!-- 5. Wardrobe Section (Strictly No Emojis Under Attire Sets) -->
-                <div class="department-item" style="background: #fdfafc; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
-                    <h4 style="color: #4A154B; margin-bottom: 10px; font-size: 1.15rem; border-bottom: 2px solid #e6daf2; padding-bottom: 5px;">🧥 Wardrobe Department</h4>
-                    <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 15px;">
-                        "Uniform attire shows a reflection of spiritual preparation, reverence and alignment with God."
-                    </p>
-                    <h5 style="font-size: 0.95rem; color: #4A154B; margin-bottom: 8px; font-weight: bold;">Uniform Attire Configurations:</h5>
-                    <ul style="list-style-type: square; padding-left: 20px; font-size: 0.88rem; color: #333; line-height: 1.6;">
-                        <li>First Set: Black shirt, black trouser and black shoes so there is a piece of white cloth</li>
-                        <li>Second Set: White tshirts black tie black trouser and a pair of white shoe and a black sleeveless (wind breaker)</li>
-                        <li>Third Set: White branded T shirt, light blue jeans and a pair of white shoes</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-       
-        <!-- Ministry Gallery Section -->
-        <div class="card" style="border-left: 5px solid #ffcc00;">
-            <h3>📸 Ministry Gallery</h3>
-            <p style="margin-bottom: 15px;">Capturing moments of worship, praise, and fellowship at Kenyatta Road:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
-                
-                <!-- Image 1 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance1.jpg" alt="The Rattles Anniversary" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Rattles Anniversary</p>
-                </div>
-
-                <!-- Image 2 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance2.jpg" alt="The Rattles Anniversary Rehearsal" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Rattles Anniversary</p>
-                </div>
-
-                <!-- Image 3 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance3.jpg" alt="The Rattles Anniversary Presentation" style="width: 100%; height: 180px; object-fit: contain; background-color: #fcfbfa; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Rattles Anniversary</p>
-                </div>
-
-                <!-- Image 4 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance4.jpg" alt="The Rattles Anniversary Celebration" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Rattles Anniversary</p>
-                </div>
-
-                <!-- Image 5 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance5.jpg" alt="The Rattles Ministry Fellowship" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Ministry Fellowship</p>
-                </div>
-
-                <!-- Image 6 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance6.jpg" alt="The Rattles Celebration" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Celebration</p>
-                  <!-- NEW Image 7 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance7.jpg" alt="Anniversary Poster" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Anniversary Poster</p>
-                </div>
-
-                <!-- NEW Image 8 -->
-                <div style="background: #fcfbfa; padding: 8px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
-                    <img src="team-dance8.jpg" alt="Anniversary Bonding Time" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px; font-weight: bold;">Anniversary Bonding Time</p>
-                </div>
-
-            </div>
-        </div>
-        
- <div class="card" id="contact">
-       <h3>📞 Contact & Inquiries</h3>
-<p>Want us to minister at an event, or interested in joining the team? Reach out to our leadership directly or visit us at Kenyatta Road:</p>
-<ul style="list-style-type: none; padding-left: 0; margin-top: 15px; margin-bottom: 20px;">
-    <li style="margin-bottom: 10px; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
-        <!-- The Photo (Styled as a small, neat circle to replace the emoji) -->
-        <img src="path-to-shii-photo.jpg" alt="Shii Mboi" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle;">
-        <span><strong>Shii Mboi (Team Leader):</strong> +254 798 891886</span>
-    </li>
-    <li style="font-size: 1.05rem;">
-        <strong>📍 Location:</strong> Kenyatta Road
-    </li>
-</ul>
-
-<a href="https://wa.me" target="_blank" class="btn" style="background-color: #25D366; color: white; display: inline-flex; align-items: center; gap: 8px; border-radius: 25px; padding: 12px 24px; text-decoration: none; font-weight: bold; transition: 0.3s;">
-    💬 Chat on WhatsApp
-</a>
-
-      <!-- Developer Portfolio Section -->
-<div class="card" style="border-left: 5px solid #ffcc00; background: #fffdf5; margin-bottom: 25px;">
-    <h3>🛠️ Developer Profile</h3>
-    <p>This digital ministry platform was engineered, deployed, and is maintained by:</p>
-    <div style="margin-top: 15px; display: flex; align-items: center; gap: 15px; background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
-        <!-- Developer Profile Image (Replaced emoji) -->
-        <img src="alvin.jpg" alt="Alvin Profile" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #1E3A8A;">
-        <div>
-            <h4 style="color: #1E3A8A; margin: 0;">Alvin</h4>
-            <p style="font-size: 0.85rem; color: #666; margin: 2px 0 0 0;">Systems & Web Software Developer</p>
-        </div>
-    </div>
-    <div style="margin-top: 15px;">
-        <h4 style="font-size: 0.9rem; color: #1E3A8A; margin-bottom: 5px;">Technical Stack Used:</h4>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span style="background: #e1e7f5; color: #1E3A8A; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">HTML5</span>
-            <span style="background: #e1e7f5; color: #1E3A8A; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">CSS3</span>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 The Rattles of Shiloh. All Rights Reserved.</p>
-</footer>
+                <div style="margin-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: #1E3A8A; margin-bottom: 5px;">Technical Stack Used:</h4>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span class="tech-badge">HTML5</span>

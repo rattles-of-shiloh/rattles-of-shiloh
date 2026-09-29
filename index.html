@@ -56,15 +56,15 @@
             height: auto;
         }
 
-        /* --- TOP SECTION: PERSISTENT HOVER SPLIT GRID --- */
+        /* --- TOP SECTION: PERSISTENT GRID ENGINE --- */
         .top-split-wrapper {
             display: grid;
-            grid-template-columns: minmax(160px, 35%) 1fr; /* Side-by-side splitting engine for upper deck */
+            grid-template-columns: minmax(180px, 35%) 1fr; /* Spacious horizontal layout proportion */
             width: 100vw;
             background-color: #f4f6f9;
         }
 
-        /* Left Column Blue Tracking Strip */
+        /* Left Side Blue Tracking Strip */
         .left-sidebar-strip {
             background-color: #1A365D;
             padding: 20px 12px;
@@ -102,7 +102,7 @@
             opacity: 0.95;
         }
 
-        /* Modular Left Column Cards (Welcome Ministry, Upcoming Events, Map) */
+        /* Modular Left Column Cards */
         .sidebar-card {
             background-color: #2B6CB0;
             color: white;
@@ -140,14 +140,16 @@
             padding-bottom: 4px;
         }
 
-        /* Right Column Container for Welcome Box */
+        /* Right Column Workspace for Broad Paragraph Flow */
         .right-top-box {
-            padding: 20px 15px;
+            padding: 20px 25px;
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
         }
 
-        /* --- BOTTOM SECTION: PURE VERTICAL FULL-WIDTH SCROLL --- */
+        /* --- BOTTOM SECTION: PURE VERTICAL FULL-WIDTH STREAM --- */
         .bottom-vertical-stream {
             width: 100vw;
             max-width: 1200px;
@@ -155,10 +157,10 @@
             padding: 10px 20px 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Stacks all subsequent blocks vertically with no sides */
+            gap: 25px;
         }
 
-        /* Unified Base Card Styles for the full-width stream */
+        /* Wide Card Styles for Balanced Text Distribution */
         .card {
             background: white;
             padding: 30px;
@@ -244,7 +246,7 @@
             list-style-type: none;
             padding-left: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 10px;
         }
 
@@ -297,13 +299,12 @@
         </a>
     </div>
 
-    <!-- 2. UPPER INTERFACE HUB: Core Split Grid Segment -->
+    <!-- 2. UPPER SYSTEM ROW: Persistent Split Grid Segment -->
     <div class="top-split-wrapper" id="main-site">
         
-        <!-- LEFT TRACK: Modular Side-by-Side Floating Cards -->
+        <!-- LEFT TRACK: Left-Hand Sidebar Cards -->
         <div class="left-sidebar-strip">
             
-            <!-- Box 1: Team Main Identification -->
             <div class="sidebar-header-box">
                 <header>
                     <h1>RATTLES OF SHILOH</h1>
@@ -311,72 +312,69 @@
                 </header>
             </div>
             
-            <!-- Box 2: Left Ministry Intro Card -->
             <div class="sidebar-card">
                 <h3>Welcome to Our Ministry</h3>
                 <p>We are a dedicated church dancing team using our talents to minister, inspire, and praise the Almighty at Kenyatta Road.</p>
             </div>
 
-            <!-- Box 3: Left Crusade Event Schedule Card -->
             <div class="sidebar-card">
                 <h3>UPCOMING EVENTS</h3>
                 <ul class="sidebar-schedule-list">
                     <li style="margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem;">
                         <strong>Church Crusade</strong><br>
                         📅 24th - 27th<br>
-                        <span style="color: #ffcc00; font-weight: 700;">✨ Ministered: 26th & 27th</span>
+                        <span style="color: #ffcc00; font-weight: 700;">✨ Ministering: 26th & 27th</span>
                     </li>
                    
                 </ul>
             </div>
 
-            <!-- Box 4: Left Map Integration Module -->
             <div class="sidebar-card" style="border-bottom: 3px solid #ffcc00;">
-                <h3> DIRECTIONS</h3>
+                <h3>DIRECTIONS</h3>
                 <p style="font-size: 0.8rem; margin-bottom: 10px;">📍 Kenyatta Road, Juja, Kenya</p>
                 
-                </div>
             </div>
         </div>
 
-        <!-- RIGHT TRACK: Floating Welcome Card Block -->
+        <!-- RIGHT TRACK: Broad Paragraph Flow Modules -->
         <div class="right-top-box">
-            <div class="card" style="margin-bottom: 0; height: 100%;">
+            
+            <!-- Box 1: Core Welcome Writing -->
+            <div class="card" style="margin-bottom: 0;">
                 <h2 class="right-intro-header">Welcome to Our Online Home</h2>
-                
-                <p style="color: #000; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
+                <p style="color: #000; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">
                     We are a dedicated church dancing team using our talents to minister, inspire, and praise Irraie, and praise the Almighty at Kenyatta Road. Its manker horrraistan to minister Inspire, and praise the Almighty at Kenyatta Road.
                 </p>
-                
                 <p style="color: #000; font-size: 0.95rem; line-height: 1.6;">
                     We are a create a church dancing team unsmx:vinnous talents, and hemisters to keep rumbling most opportunities to emberizing our sonil-evening torism. We are are a great dnance to have, community outreach, inspics, inspire and praise the al Almighty at Kenyatta Road.
                 </p>
             </div>
+
+            <!-- Box 2: Shifted Mission Statement (Now Broad & Wide) -->
+            <div class="card" style="margin-bottom: 0;">
+                <h3>✨ Our Mission</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">To glorify God through creative and spiritual dance expressions. The Rattles dance team aims to touch hearts, uplift spirits, and lead the congregation into a deep atmosphere of worship during services and special church events.</p>
+            </div>
+
+            <!-- Box 3: Shifted Practice Timelines (Now Broad & Wide) -->
+            <div class="card" style="margin-bottom: 0;">
+                <h3>📅 Practice Schedule</h3>
+                <p style="margin-bottom: 12px; font-size: 0.95rem;">We meet regularly at Kenyatta Road to fellowship, pray, and practice our routines. All members are welcome to join us in spiritual preparation:</p>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem;">
+                    <li><strong>Mondays:</strong> 6:45 PM – 8:20 PM</li>
+                    <li><strong>Wednesdays:</strong> 6:45 PM – 8:15 PM</li>
+                    <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
+                </ul>
+            </div>
+            
         </div>
-    </div> <!-- End of Top Split Wrapper -->
+    </div> <!-- End of Top Split Wrapper Engine -->
      <!-- =========================================================
          LOWER INTERFACE HUB: STACKS COMPLETELY VERTICALLY WITH NO SIDES
          ========================================================= -->
     <div class="bottom-vertical-stream">
         
-        <!-- Mission Section (Now breaks free horizontally to full width) -->
-        <div class="card">
-            <h3>✨ Our Mission</h3>
-            <p>To glorify God through creative and spiritual dance expressions. The Rattles dance team aims to touch hearts, uplift spirits, and lead the congregation into a deep atmosphere of worship during services and special church events.</p>
-        </div>
-
-        <!-- Practice Schedule Section -->
-        <div class="card">
-            <h3>📅 Practice Schedule</h3>
-            <p style="margin-bottom: 15px;">We meet regularly at Kenyatta Road to fellowship, pray, and practice our routines. All members are welcome to join us:</p>
-            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
-                <li><strong>Mondays:</strong> 6:45 PM – 8:20 PM</li>
-                <li><strong>Wednesdays:</strong> 6:45 PM – 8:15 PM</li>
-                <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
-            </ul>
-        </div>
-
-        <!-- Roster and Department Cards Section -->
+        <!-- Department & Filter Roster Section -->
         <div class="card">
             <h3>🎭 Ministry Departments & Groups</h3>
             <p style="margin-bottom: 25px;">Our team is organized into specialized groups to ensure excellence in our dance and music ministry:</p>
@@ -451,7 +449,7 @@
                     <h4>🎭 Skits Team</h4>
                     <p style="font-size: 0.9rem; color: #555; font-style: italic; margin-bottom: 12px;">
                         "Our purpose is not to perform, but to minister. We do not look for the applause of men, but for the transformation of souls. As a skit team in training, we commit our talents, our bodies, and our voices to become sharp, effective weapons in the hands of the Living God."
-                        </p>
+                    </p>
                     <p style="font-size: 0.88rem; font-weight: bold; color: #1E3A8A;">✨ Members: 1. Mirriam, 2. Peris, 3. James, 4. Christabel, 5. Abbie</p>
                 </div>
 
@@ -477,7 +475,7 @@
                 </div>
             </div>
         </div> <!-- End of Ministry Card -->
-          <div class="card" style="border-left: 6px solid #ffcc00;">
+        <div class="card" style="border-left: 6px solid #ffcc00;">
                 <h3>📸 Ministry Gallery</h3>
                 <p style="margin-bottom: 15px;">Capturing moments of worship, praise, and fellowship at Kenyatta Road:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
@@ -571,9 +569,8 @@
 
             <footer>
                 <p>&copy; 2026 The Rattles of Shiloh. All Rights Reserved.</p>
-            </footer>
-
-        </div> <!-- End Content Area -->
+        </footer>
+           </div> <!-- End Content Area -->
     </div> <!-- End Main Site -->
 
     <script>

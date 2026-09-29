@@ -61,6 +61,7 @@
             display: grid;
             grid-template-columns: 360px 1fr; /* Fixed Sidebar left, fluid content right */
             min-height: 100vh;
+            width: 100%;
         }
 
         /* Left Sidebar Container (Laptop View) */
@@ -263,21 +264,24 @@
             border-radius: 8px;
         }
 
-        /* --- 📱 MOBILE RESPONSIVE ENGINE MEDIA QUERY --- */
+        /* =========================================================
+           📱 MOBILE LAYOUT ENGINE (STRICT VERTICAL STACK)
+           ========================================================= */
         @media (max-width: 900px) {
             #main-site {
-                display: block !important;
-                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important; /* Forces total vertical stacking */
+                width: 100vw !important;
             }
 
             .sidebar {
                 width: 100% !important;
                 height: auto !important;
-                position: relative !important;
+                position: relative !important; /* Removes desktop lock mechanism */
                 top: 0 !important;
                 border-right: none !important;
-                border-bottom: 4px solid #ffcc00 !important;
-                padding: 30px 20px !important;
+                border-bottom: 4px solid #ffcc00 !important; /* Keeps decorative bottom accent */
+                padding: 40px 20px !important;
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
@@ -290,33 +294,36 @@
             }
 
             .content-area {
-                padding: 20px 15px !important;
                 width: 100% !important;
                 max-width: 100% !important;
+                padding: 24px 16px !important; /* Adds proportional padding for small displays */
                 display: block !important;
             }
 
             .card {
-                padding: 20px !important;
-                margin-bottom: 20px !important;
+                padding: 20px 15px !important;
+                margin-bottom: 24px !important;
             }
 
             .hero {
                 padding: 40px 20px !important;
-                margin-bottom: 20px !important;
+                margin-bottom: 24px !important;
             }
 
             .sidebar header h1 {
-                font-size: 1.8rem !important;
+                font-size: 2rem !important;
             }
 
             .hero h2 {
-                font-size: 1.6rem !important;
+                font-size: 1.8rem !important;
+            }
+            
+            .orchestra-grid {
+                grid-template-columns: 1fr !important; /* Stacks instruments one-per-row on small mobile displays */
             }
         }
     </style>
 </head>
-
 <body>
 
     <!-- 1. Full Screen Black Splash Page -->
@@ -329,20 +336,20 @@
     <!-- 2. Master Site Layout Hub -->
     <div id="main-site">
         
-        <!-- LEFT COLUMN: Sidebar Navigation Banner -->
+        <!-- LEFT COLUMN: Sidebar Navigation Banner (Becomes Full-Width Top Header on Mobile) -->
         <div class="sidebar">
             <header>
                 <h1>RATTLES OF SHILOH</h1>
                 <p>Ezekiel 3:12 "Then the spirit lifted me up, and i heard a loud rumbling sound behind me. (May the glory of the lord be praised in his place!)"</p>
             </header>
             
-            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #ffcc00;">
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #ffcc00; width: 100%; max-width: 400px; text-align: left;">
                 <h4 style="color: #ffcc00; margin-bottom: 8px;">📍 Kenyatta Road</h4>
                 <p style="font-size: 0.88rem; line-height: 1.4;">Our dedicated home base for prayer, fellowship, and prophetic choreography practice.</p>
             </div>
         </div>
 
-        <!-- RIGHT COLUMN: Main Content Scroll Block -->
+        <!-- RIGHT COLUMN: Main Content Scroll Block (Stacks Cleanly Below Header on Mobile) -->
         <div class="content-area">
             
             <div class="hero">
@@ -365,7 +372,7 @@
                     <li><strong>Saturdays:</strong> 3:00 PM – 6:00 PM</li>
                 </ul>
             </div>
-  <div class="card">
+                <div class="card">
                 <h3>🎭 Ministry Departments & Groups</h3>
                 <p style="margin-bottom: 25px;">Our team is organized into specialized groups to ensure excellence in our dance and music ministry:</p>
                 
@@ -465,7 +472,7 @@
                     </div>
                 </div>
             </div> <!-- End of Ministry Card -->
-             <div class="card" style="border-left: 6px solid #ffcc00;">
+               <div class="card" style="border-left: 6px solid #ffcc00;">
                 <h3>📸 Ministry Gallery</h3>
                 <p style="margin-bottom: 15px;">Capturing moments of worship, praise, and fellowship at Kenyatta Road:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
@@ -545,7 +552,7 @@
                 <p>&copy; 2026 The Rattles of Shiloh. All Rights Reserved.</p>
             </footer>
 
-        </div> <!-- End Content Area (Locks everything inside layout framework safely) -->
+        </div> <!-- End Content Area -->
     </div> <!-- End Main Site -->
 
     <script>
@@ -574,5 +581,3 @@
     </script>
 </body>
 </html>
-
-    

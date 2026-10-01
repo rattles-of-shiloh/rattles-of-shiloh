@@ -10,7 +10,7 @@
     <!-- Google Fonts for professional typography -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
         /* Global Reset Rules */
@@ -287,6 +287,53 @@
             color: #9ca3af;
             font-size: 0.9rem;
             border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* 📱 RESPONSIVE MOBILE FIX: TARGETING SMARTPHONES ONLY */
+        @media (max-width: 767px) {
+            /* Collapses the top split grid down into a single column stack layout */
+            .top-split-wrapper {
+                grid-template-columns: 1fr;
+                width: 100vw;
+            }
+
+            /* Left Sidebar Track stacks perfectly right on top */
+            .left-sidebar-strip {
+                border-right: none;
+                border-bottom: 4px solid #ffcc00; /* Gold horizontal separation bar */
+                width: 100vw;
+                padding: 25px 15px;
+            }
+
+            /* Right Content Area takes up the full mobile width right below it */
+            .right-top-box {
+                width: 100vw;
+                padding: 20px 15px;
+            }
+
+            /* Formats lower hub cards cleanly for handheld screens */
+            .card {
+                padding: 20px 15px !important;
+            }
+
+            /* Stacks the musical orchestra deployment entries vertically */
+            .orchestra-grid {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+            }
+
+            /* Aligns roster badges into the center row */
+            .member-grid {
+                justify-content: center;
+            }
+
+            /* Collapses the developer bio row layout safely on small devices */
+            .developer-block {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center;
+            }
         }
     </style>
 </head>
